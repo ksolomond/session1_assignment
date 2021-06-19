@@ -1,0 +1,19 @@
+Solomon Kebede
+B20-Qg1
+
+
+1. What assets can’t be created using Design Center?
+
+	d. API portals
+
+2. Which Tools are being used to create Mule apps and API’s?(Answer specific to you)
+
+	a. AnyPoint Studio
+
+3. What Mulesoft API-led connectivity layer is intended to expose part of a backend database without business logic?
+
+	c. System
+
+4. What assets can the Anypoint Exchange contains?
+
+	d. All of these

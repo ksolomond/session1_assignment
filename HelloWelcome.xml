@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3f41d86f-a862-4262-8069-f328d166fc44" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="session1_assignmentFlow" doc:id="d69cd252-cae6-4c1a-ab01-dfb2005d9686" >
+		<http:listener doc:name="Listener" doc:id="48e749c0-f299-470c-8f83-03758eb8e673" config-ref="HTTP_Listener_config" path="/welcome"/>
+		<set-variable value="#[attributes.queryParams.firstname]" doc:name="First_Name" doc:id="4400f0c9-d288-49df-91bf-f0ba0f5b01bb" variableName="firstname"/>
+		<set-variable value="#[attributes.queryParams.lastname]" doc:name="Last_Name" doc:id="fb319a4a-5604-4a5b-a93e-4bc3f4957e8b" variableName="lastname"/>
+		<set-payload value="#['Hello! ' ++ vars.firstname ++ ' ' ++ vars.lastname ++ ', '++'welcome to MuleSoft, ' ++ 'today is ' ++ now() as String {format: &quot;yyyy-MM-dd&quot;}]" doc:name="Set Payload" doc:id="a22b85ed-7eef-4ed1-99a4-1d4f2657ad7e" />
+	</flow>
+</mule>
